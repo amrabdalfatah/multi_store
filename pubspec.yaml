@@ -65,6 +65,7 @@ flutter:
   assets:
     - images/
     - images/men/
+    - images/try/
     - images/inapp/
     - images/women/
     - images/shoes/
