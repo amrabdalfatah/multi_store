@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:multi_store/customer_screens/customer_orders.dart';
+import 'package:multi_store/customer_screens/wishlist.dart';
+import 'package:multi_store/main_screens/cart.dart';
+import 'package:multi_store/widgets/appbar_widgets.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({Key? key}) : super(key: key);
@@ -93,7 +97,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           ),
                         ),
                         child: TextButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) => const CartScreen(
+                                back: AppBarBackButton(),
+                              ),
+                            ));
+                          },
                           child: SizedBox(
                             height: 40,
                             width: MediaQuery.of(context).size.width * 0.2,
@@ -112,7 +122,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       Container(
                         color: Colors.teal,
                         child: TextButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) => const CustomerOrders(),
+                            ));
+                          },
                           child: SizedBox(
                             height: 40,
                             width: MediaQuery.of(context).size.width * 0.2,
@@ -137,7 +151,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           ),
                         ),
                         child: TextButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) => const WishlistScreen(),
+                            ));
+                          },
                           child: SizedBox(
                             height: 40,
                             width: MediaQuery.of(context).size.width * 0.2,

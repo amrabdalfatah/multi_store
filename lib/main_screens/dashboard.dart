@@ -1,4 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:multi_store/dashboard_components/edit_buisness.dart';
+import 'package:multi_store/dashboard_components/manage_products.dart';
+import 'package:multi_store/dashboard_components/my_store.dart';
+import 'package:multi_store/dashboard_components/supp_balance.dart';
+import 'package:multi_store/dashboard_components/supp_statics.dart';
+import 'package:multi_store/dashboard_components/supplier_orders.dart';
 import 'package:multi_store/widgets/appbar_widgets.dart';
 
 List<String> labels = [
@@ -7,7 +13,7 @@ List<String> labels = [
   'edit profile',
   'manage products',
   'balance',
-  'statistcs',
+  'statics',
 ];
 
 List<IconData> icons = [
@@ -17,6 +23,15 @@ List<IconData> icons = [
   Icons.settings,
   Icons.attach_money,
   Icons.show_chart,
+];
+
+List<Widget> pages = const [
+  MyStore(),
+  SupplierOrders(),
+  EditBuisness(),
+  ManageProducts(),
+  BalanceScreen(),
+  StaticsScreen(),
 ];
 
 class DashboardScreen extends StatelessWidget {
@@ -52,29 +67,36 @@ class DashboardScreen extends StatelessWidget {
           children: List.generate(
             labels.length,
             (index) {
-              return Card(
-                shadowColor: Colors.purpleAccent,
-                elevation: 20,
-                color: Colors.blueGrey.withOpacity(0.7),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    Icon(
-                      icons[index],
-                      size: 50,
-                      color: Colors.tealAccent,
-                    ),
-                    Text(
-                      labels[index].toUpperCase(),
-                      style: const TextStyle(
-                        fontSize: 24,
-                        letterSpacing: 2,
+              return InkWell(
+                onTap: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => pages[index]),
+                  );
+                },
+                child: Card(
+                  shadowColor: Colors.purpleAccent,
+                  elevation: 20,
+                  color: Colors.blueGrey.withOpacity(0.7),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      Icon(
+                        icons[index],
+                        size: 50,
                         color: Colors.tealAccent,
-                        fontWeight: FontWeight.w600,
-                        fontFamily: 'Acme',
                       ),
-                    ),
-                  ],
+                      Text(
+                        labels[index].toUpperCase(),
+                        style: const TextStyle(
+                          fontSize: 24,
+                          letterSpacing: 2,
+                          color: Colors.tealAccent,
+                          fontWeight: FontWeight.w600,
+                          fontFamily: 'Acme',
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               );
             },
