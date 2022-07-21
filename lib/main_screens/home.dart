@@ -73,7 +73,10 @@ class _HomeScreenState extends State<HomeScreen> {
 }
 
 class RepeatedTab extends StatelessWidget {
-  const RepeatedTab({required this.label, Key? key}) : super(key: key);
+  const RepeatedTab({
+    required this.label,
+    Key? key,
+  }) : super(key: key);
 
   final String label;
 

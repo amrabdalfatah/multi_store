@@ -1,5 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:multi_store/categories/bags_category.dart';
+import 'package:multi_store/categories/beauty_category.dart';
+import 'package:multi_store/categories/electronics_category.dart';
+import 'package:multi_store/categories/home_category.dart';
+import 'package:multi_store/categories/kids_category.dart';
+import 'package:multi_store/categories/shoes_category.dart';
+import 'package:multi_store/categories/women_category.dart';
 
+import '../categories/accessories_category.dart';
 import '../categories/men_category.dart';
 import '../widgets/fake_search.dart';
 
@@ -61,10 +69,9 @@ class _CategoryScreenState extends State<CategoryScreen> {
   }
 
   Widget sideNavigator(Size size) {
-    return Container(
+    return SizedBox(
       height: size.height * 0.8,
       width: size.width * 0.2,
-      color: Colors.grey.shade300,
       child: ListView.builder(
         itemCount: items.length,
         itemBuilder: (context, index) {
@@ -84,7 +91,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
             },
             child: Container(
               height: size.height * 0.2,
-              color: items[index].isSelected ? Colors.white : null,
+              color: items[index].isSelected ? Colors.white : Colors.grey.shade300,
               child: Center(
                 child: Text(
                   items[index].label,
@@ -116,14 +123,14 @@ class _CategoryScreenState extends State<CategoryScreen> {
         scrollDirection: Axis.vertical,
         children: const [
           MenCategory(),
-          Center(child: Text('women category')),
-          Center(child: Text('shoes category')),
-          Center(child: Text('bags category')),
-          Center(child: Text('electronics category')),
-          Center(child: Text('Accessories category')),
-          Center(child: Text('Home & Garden category')),
-          Center(child: Text('Kids category')),
-          Center(child: Text('Beauty category')),
+          WomenCategory(),
+          ShoesCategory(),
+          BagsCategory(),
+          ElectronicsCategory(),
+          AccessoriesCategory(),
+          HomeCategory(),
+          KidsCategory(),
+          BeautyCategory(),
         ],
       ),
     );
