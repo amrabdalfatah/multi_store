@@ -177,7 +177,13 @@ class _WelcomeScreenState extends State<WelcomeScreen>
                         Padding(
                           padding: const EdgeInsets.only(left: 8.0),
                           child: TealButton(
-                              label: 'Sign Up', onPressed: () {}, width: 0.25),
+                            label: 'Sign Up',
+                            onPressed: () {
+                              Navigator.of(context)
+                                  .pushReplacementNamed('/customer_signup');
+                            },
+                            width: 0.25,
+                          ),
                         ),
                         TealButton(
                           label: 'Log In',
